@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Maanav Tools</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* (UNCHANGED CSS - kept exactly as you wrote) */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,honeydew,aliceblue);
+    color:#1f2937;
+    min-height:100vh;
+}
+
+/* NAVBAR */
+nav{
+    width:100%;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(255,255,255,0.6);
+    backdrop-filter:blur(12px);
+    position:sticky;
+    top:0;
+    z-index:1000;
+    border-bottom:1px solid rgba(0,0,0,0.05);
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    color:#0f172a;
+}
+
+.logo span{ color:#14b8a6; }
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#334155;
+    font-weight:500;
+}
+
+/* HERO */
+.hero{
+    padding:80px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:50px;
+    flex-wrap:wrap;
+}
+
+.hero-text{ flex:1; }
+
+.hero-text h1{
+    font-size:58px;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.hero-text p{
+    font-size:18px;
+    color:#475569;
+    margin-bottom:30px;
+}
+
+.hero-btn{
+    padding:14px 28px;
+    border:none;
+    background:#14b8a6;
+    color:white;
+    border-radius:12px;
+    cursor:pointer;
+}
+
+
+
+/* CATEGORIES */
+.categories{
+    padding:30px 8%;
+}
+
+.category-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+.category-btn{
+    padding:12px 22px;
+    border:none;
+    border-radius:50px;
+    background:white;
+    cursor:pointer;
+}
+
+.category-btn.active{
+    background:#14b8a6;
+    color:white;
+}
+
+/* TOOLS */
+.tools-section{
+    padding:10px 8% 80px;
+}
+
+.section-title{
+    font-size:32px;
+    margin-bottom:30px;
+}
+
+.tools-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+}
+
+.tool-card{
+    background:white;
+    border-radius:24px;
+    padding:25px;
+}
+
+.tool-icon{
+    width:55px;
+    height:55px;
+    border-radius:16px;
+    background:#ecfeff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
+}
+
+.tag{
+    padding:6px 12px;
+    border-radius:50px;
+    font-size:12px;
+    font-weight:600;
+}
+
+.free{ background:#dcfce7; color:#15803d; }
+.paid{ background:#fee2e2; color:#b91c1c; }
+
+.visit-btn{
+    padding:10px 16px;
+    border:none;
+    border-radius:10px;
+    background:#0f172a;
+    color:white;
+    cursor:pointer;
+}
+
+/* FOOTER */
+footer{
+    padding:30px;
+    text-align:center;
+    color:#64748b;
+    background:rgba(255,255,255,0.5);
+    margin-top:40px;
+}
+
+html{ scroll-behavior:smooth; }
+.category-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+    justify-content:center;
+    margin-top:10px;
+}
+/* MOBILE RESPONSIVE */
+@media(max-width:768px){
+
+    nav{
+        padding:18px 20px;
+    }
+
+    nav ul{
+        gap:12px;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+    .hero{
+        padding:50px 20px;
+        text-align:center;
+    }
+
+    .hero-text h1{
+        font-size:38px;
+    }
+
+    .hero-text p{
+        font-size:16px;
+    }
+
+    .categories{
+        padding:20px;
+    }
+
+    .tools-section{
+        padding:20px;
+    }
+
+    .section-title{
+        font-size:26px;
+        text-align:center;
+    }
+
+    .tool-card{
+        padding:20px;
+    }
+
+    footer{
+        padding:20px;
+    }
+}
+.freemium{
+    background:#ede9fe;
+    color:#6d28d9;
+}
+.tool-card{
+    background:white;
+    border-radius:24px;
+    padding:25px;
+    transition:0.3s;
+}
+
+.tool-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+.hero-btn,
+.visit-btn,
+.category-btn{
+    transition:0.3s;
+}
+
+.hero-btn:hover,
+.visit-btn:hover{
+    transform:scale(1.05);
+}
+
+.category-btn:hover{
+    background:#ccfbf1;
+}
+.hero,
+.categories,
+.tools-section{
+    max-width:1400px;
+    margin:auto;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR (UNCHANGED) -->
+<nav>
+    <div class="logo">Maanav<span>TOOLS</span></div>
+
+</nav>
+
+<!-- HERO (KEPT ONLY FIRST ONE) -->
+<section class="hero" id="home">
+
+    <div class="hero-text">
+        <h1>Discover Powerful AI Tools</h1>
+        <p>Explore the best AI tools for writing, coding, designing, productivity and more.</p>
+
+        <a href="#alltools">
+            <button class="hero-btn">Explore Tools</button>
+        </a>
+    </div>
+
+</section>
+
+
+<!-- CATEGORIES (KEPT ONLY ONE VERSION) -->
+<section class="categories" id="categories">
+
+    <div class="category-buttons">
+
+        <button class="category-btn" onclick="filterTools('all')">All</button>
+        <button class="category-btn" onclick="filterTools('Writing')">Writing</button>
+        <button class="category-btn" onclick="filterTools('Coding')">Coding</button>
+        <button class="category-btn" onclick="filterTools('Image')">Image</button>
+        <button class="category-btn" onclick="filterTools('Video')">Video</button>
+        <button class="category-btn" onclick="filterTools('Productivity')">Productivity</button>
+        <button class="category-btn" onclick="filterTools('Free')">Free Tools</button>
+
+    </div>
+
+</section>
+
+<!-- TOOLS (ONLY ONE SECTION KEPT) -->
+<section class="tools-section" id="alltools">
+
+<h2 class="section-title">All AI Tools</h2>
+
+<div class="tools-grid" id="toolsContainer">
+
+    <div class="tool-card" data-category="Writing Free">
+        <div class="tool-icon">🤖</div>
+        <span class="tag free">FREE</span>
+        <h3>ChatGPT</h3>
+        <p>AI chatbot for writing, coding and learning.</p>
+
+        <a href="https://chat.openai.com" target="_blank">
+            <button class="visit-btn">Visit</button>
+        </a>
+    </div>
+
+    <div class="tool-card" data-category="Image Paid">
+        <div class="tool-icon">🎨</div>
+        <span class="tag paid">PAID</span>
+        <h3>Midjourney</h3>
+        <p>AI image generation platform for creators.</p>
+
+        <a href="https://www.midjourney.com" target="_blank">
+            <button class="visit-btn">Visit</button>
+        </a>
+    </div>
+
+    <div class="tool-card" data-category="Coding Free">
+        <div class="tool-icon">💻</div>
+        <span class="tag free">FREE</span>
+        <h3>GitHub Copilot</h3>
+        <p>Smart AI coding assistant for developers.</p>
+
+        <a href="https://github.com/features/copilot" target="_blank">
+            <button class="visit-btn">Visit</button>
+        </a>
+    </div>
+
+    <div class="tool-card" data-category="Video Paid">
+        <div class="tool-icon">🎬</div>
+        <span class="tag paid">PAID</span>
+        <h3>Runway ML</h3>
+        <p>AI video editing platform.</p>
+
+        <a href="https://runwayml.com" target="_blank">
+            <button class="visit-btn">Visit</button>
+        </a>
+    </div>
+
+    <div class="tool-card" data-category="Productivity Free">
+        <div class="tool-icon">📌</div>
+        <span class="tag free">FREE</span>
+        <h3>Notion AI</h3>
+        <p>Organize notes and automate workflow.</p>
+
+        <a href="https://www.notion.so/product/ai" target="_blank">
+            <button class="visit-btn">Visit</button>
+        </a>
+    </div>
+
+    <div class="tool-card" data-category="Writing Paid">
+        <div class="tool-icon">📝</div>
+        <span class="tag paid">PAID</span>
+        <h3>Jasper AI</h3>
+        <p>Marketing and content writing AI tool.</p>
+
+        <a href="https://www.jasper.ai" target="_blank">
+            <button class="visit-btn">Visit</button>
+        </a>
+    </div>
+    
+    <div class="tool-card" data-category="Productivity Free">
+        <div class="tool-icon">✨</div>
+        <span class="tag free">FREE</span>
+        <h3>Gemini</h3>
+        <p>Google AI assistant for research and productivity.</p>
+         <a href="https://gemini.google.com" target="_blank">
+            <button class="visit-btn">Visit</button>
+         </a>
+    </div>
+
+    <div class="tool-card" data-category="Writing Free">
+        <div class="tool-icon">✍️</div>
+        <span class="tag free">FREE</span>
+        <h3>Grammarly</h3>
+        <p>AI grammar&writing improvement tool.</p>
+         <a href="https://www.grammarly.com" target="_blank">
+            <button class="visit-btn">Visit</button>
+         </a>
+    </div>
+
+    <div class="tool-card" data-category="Image Free">
+        <div class="tool-icon">🪄</div>
+        <span class="tag free">FREE</span>
+        <h3>Leonardo AI</h3>
+        <p>AI tool for generating creative digital art.</p>
+         <a href="https://leonardo.ai" target="_blank">
+            <button class="visit-btn">Visit</button>
+         </a>
+    </div>
+ 
+    <div class="tool-card" data-category="Coding Paid">
+        <div class="tool-icon">🖥️</div>
+        <span class="tag paid">PAID</span>
+        <h3>Cursor</h3>
+        <p>AI powered code editor for developers.</p>
+         <a href="https://cursor.sh" target="_blank">
+            <button class="visit-btn">Visit</button>
+         </a>
+    </div>
+
+     <div class="tool-card" data-category="Video Free">
+        <div class="tool-icon">📹</div>
+        <span class="tag free">FREE</span>
+        <h3>Pika</h3>
+        <p>Generates cinematic AI videos quickly.</p>
+         <a href="https://pika.art" target="_blank">
+            <button class="visit-btn">Visit</button>
+         </a>
+    </div>
+
+     <div class="tool-card" data-category="Research Free">
+        <div class="tool-icon">🔍</div>
+        <span class="tag free">FREE</span>
+        <h3>Perplexity AI</h3>
+        <p>AI search engine with source citations.</p>
+         <a href="https://www.perplexity.ai" target="_blank">
+            <button class="visit-btn">Visit</button>
+         </a>
+    </div>
+
+    <div class="tool-card" data-category="Coding Paid">
+        <div class="tool-icon">💻</div>
+        <span class="tag paid">PAID</span>
+        <h3>Beam</h3>
+        <p>AI-powered autonomous software engineering assistant for coding tasks.</p>
+         <a href="https://beam.cloud/" target="_blank">
+            <button class="visit-btn">Visit</button>
+         </a>
+    </div>
+
+    <div class="tool-card" data-category="Writing Paid">
+        <div class="tool-icon">🤖</div>
+        <span class="tag paid">PAID</span>
+        <h3>Undetectable.ai</h3>
+        <p>AI tool that rewrites AI-generated text to sound more human and bypass AI detectors.</p>
+         <a href="https://undetectable.ai/" target="_blank">
+            <button class="visit-btn">Visit</button>
+         </a>
+    </div>
+
+    
+    <div class="tool-card" data-category="Writing Paid">
+        <div class="tool-icon">📝</div>
+        <span class="tag paid">PAID</span>
+        <h3>Turnitin</h3>
+        <p>AI-powered plagiarism detection and academic integrity checker.</p>
+         <a href="https://www.turnitin.com/" target="_blank">
+            <button class="visit-btn">Visit</button>
+         </a>
+    </div>
+
+    <div class="tool-card" data-category="All Free">
+        <div class="tool-icon">🤖</div>
+        <span class="tag free">FREE</span>
+        <h3>Microsoft Copilot</h3>
+        <p>AI assistant by Microsoft for writing, coding, image generation, and productivity tasks.</p>
+         <a href="https://copilot.microsoft.com/" target="_blank">
+            <button class="visit-btn">Visit</button>
+         </a>
+    </div>
+
+    <div class="tool-card" data-category="Coding Free">
+        <div class="tool-icon">💬</div>
+        <span class="tag free">FREE</span>
+        <h3>Make</h3>
+        <p>Visual no-code automation platform to connect apps and build AI workflows.</p>
+         <a href="https://www.make.com/" target="_blank">
+            <button class="visit-btn">Visit</button>
+         </a>
+    </div>
+
+    <div class="tool-card" data-category="Writing Paid">
+        <div class="tool-icon">🤖</div>
+        <span class="tag paid">PAID</span>
+        <h3>Copilot Studio</h3>
+        <p>Build custom AI copilots and business agents using Microsoft’s low-code platform.</p>
+         <a href="https://www.microsoft.com/copilot/microsoft-copilot-studio/" target="_blank">
+            <button class="visit-btn">Visit</button>
+         </a>
+    </div>
+
+    <div class="tool-card" data-category="Coding Freemium">
+        <div class="tool-icon">🤖</div>
+        <span class="tag freemium">FREEMIUM</span>
+        <h3>AgentGPt</h3>
+        <p>Browser-based autonomous AI agent platform that can plan and execute tasks from a given goal.</p>
+         <a href="https://agentgpt.io/" target="_blank">
+            <button class="visit-btn">Visit</button>
+         </a>
+    </div>
+
+    <div class="tool-card" data-category="All Paid">
+        <div class="tool-icon">☁️</div>
+        <span class="tag paid">PAID</span>
+        <h3>Vertex AI</h3>
+        <p>Google Cloud’s AI platform for building, training, and deploying generative AI and machine learning apps.</p>
+         <a href="https://cloud.google.com/vertex-ai" target="_blank">
+            <button class="visit-btn">Visit</button>
+         </a>
+    </div>
+
+    <div class="tool-card" data-category="Coding Free">
+        <div class="tool-icon">🤖</div>
+        <span class="tag free">FREE</span>
+        <h3>AutoGPT</h3>
+        <p>Autonomous AI agent that can plan and execute multi-step tasks with minimal human input.</p>
+         <a href="https://agpt.co" target="_blank">
+            <button class="visit-btn">Visit</button>
+         </a>
+    </div>
+
+    <div class="tool-card" data-category="Coding Free">
+        <div class="tool-icon">🤖</div>
+        <span class="tag free&paid">FREE&PAID</span>
+        <h3>CrewAI</h3>
+        <p>Open-source multi-agent AI framework for building collaborative AI agent workflows and automations.</p>
+         <a href="https://crewai.com/" target="_blank">
+            <button class="visit-btn">Visit</button>
+         </a>
+    </div>
+
+     <div class="tool-card" data-category="Coding Free">
+        <div class="tool-icon">🧠</div>
+        <span class="tag free">FREE</span>
+        <h3>MetaGPT</h3>
+        <p>Multi-agent AI framework that simulates a software company to generate apps, code, and documents from prompts.</p>
+         <a href="https://docs.deepwisdom.ai" target="_blank">
+            <button class="visit-btn">Visit</button>
+         </a>
+    </div>
+
+    <div class="tool-card" data-category="Coding Free">
+        <div class="tool-icon">👨‍💻</div>
+        <span class="tag free">FREE</span>
+        <h3>ChatDev</h3>
+        <p>Multi-agent AI software development platform where AI roles collaborate to design, code, test, and document apps automatically.</p>
+         <a href="https://chatdev.ai" target="_blank">
+            <button class="visit-btn">Visit</button>
+         </a>
+    </div>
+
+    <div class="tool-card" data-category="Coding Free">
+        <div class="tool-icon">🤖</div>
+        <span class="tag free">FREE</span>
+        <h3>AutoGen</h3>
+        <p>Microsoft’s multi-agent AI framework for building autonomous AI agents and workflows.</p>
+         <a href="https://microsoft.github.io/autogen/" target="_blank">
+            <button class="visit-btn">Visit</button>
+         </a>
+    </div>
+
+     <div class="tool-card" data-category="Coding Freemium">
+        <div class="tool-icon">🔄</div>
+        <span class="tag freemium">FREEMIUM</span>
+        <h3>Flowise</h3>
+        <p>Visual low-code platform for building AI agents, chatbots, and LLM workflows with drag-and-drop nodes.</p>
+         <a href="https://flowiseai.com/" target="_blank">
+            <button class="visit-btn">Visit</button>
+         </a>
+    </div>
+
+      <div class="tool-card" data-category="Writing Free">
+        <div class="tool-icon">🔎</div>
+        <span class="tag free">FREE</span>
+        <h3>Micrososft Bing</h3>
+        <p>AI-powered search engine by Microsoft for web, image, video, and AI-assisted search experiences.</p>
+         <a href="https://www.bing.com/" target="_blank">
+            <button class="visit-btn">Visit</button>
+         </a>
+    </div>
+
+     <div class="tool-card" data-category="Writing Free">
+        <div class="tool-icon">🦆</div>
+        <span class="tag free">FREE</span>
+        <h3>DuckDuckGo</h3>
+        <p>Privacy-focused search engine and browser that protects user data and blocks trackers.</p>
+         <a href="https://duckduckgo.com/" target="_blank">
+            <button class="visit-btn">Visit</button>
+         </a>
+    </div>
+
+    <div class="tool-card" data-category="Writing Free">
+        <div class="tool-icon">🌐</div>
+        <span class="tag free">FREE</span>
+        <h3>Google Translate</h3>
+        <p>Instantly translate text, speech, images, documents, and websites across hundreds of languages.</p>
+         <a href="https://translate.google.com/" target="_blank">
+            <button class="visit-btn">Visit</button>
+         </a>
+    </div>
+
+    <div class="tool-card" data-category="Writing Freemium">
+        <div class="tool-icon">🌐</div>
+        <span class="tag freemium">FREEMIUM</span>
+        <h3>Smartcat</h3>
+        <p>AI-powered translation and multilingual content platform for localization, documents, and global content workflows.</p>
+         <a href="https://www.smartcat.com/" target="_blank">
+            <button class="visit-btn">Visit</button>
+         </a>
+    </div>
+
+    <div class="tool-card" data-category="Writing Free">
+        <div class="tool-icon">💬</div>
+        <span class="tag free">FREE</span>
+        <h3>YouChat</h3>
+        <p>AI-powered conversational search assistant that provides chat responses with live web results and citations.</p>
+         <a href="https://web.youchat.com/" target="_blank">
+            <button class="visit-btn">Visit</button>
+         </a>
+    </div>
+
+    <div class="tool-card" data-category="Writing Paid">
+        <div class="tool-icon">🌐</div>
+        <span class="tag paid">PAID</span>
+        <h3>Smartling</h3>
+        <p>AI-powered translation and localization platform for websites, apps, and global content management.</p>
+         <a href="https://www.smartling.com/" target="_blank">
+            <button class="visit-btn">Visit</button>
+         </a>
+    </div>
+
+    <div class="tool-card" data-category="Writing Free">
+        <div class="tool-icon">🤗</div>
+        <span class="tag free">FREE</span>
+        <h3>HuggingChat</h3>
+        <p>Open-source AI chatbot by Hugging Face with access to multiple community AI models.</p>
+         <a href="https://huggingface.co/chat/" target="_blank">
+            <button class="visit-btn">Visit</button>
+         </a>
+    </div>
+
+    <div class="tool-card" data-category="Writing Freemium">
+        <div class="tool-icon">⚡</div>
+        <span class="tag freemium">FREEMIUM</span>
+        <h3>Zapier</h3>
+        <p>Automates workflows by connecting apps, AI tools, and services without coding.</p>
+         <a href="https://zapier.com/" target="_blank">
+            <button class="visit-btn">Visit</button>
+         </a>
+    </div>
+
+    <div class="tool-card" data-category="Coding Freemium">
+        <div class="tool-icon">⚡</div>
+        <span class="tag freemium">FREEMIUM</span>
+        <h3>Bardeen</h3>
+        <p>AI-powered browser automation tool that automates repetitive workflows and web tasks.</p>
+         <a href="https://www.bardeen.ai/" target="_blank">
+            <button class="visit-btn">Visit</button>
+         </a>
+    </div>
+
+    <div class="tool-card" data-category="Coding Freemium">
+        <div class="tool-icon">🧠</div>
+        <span class="tag freemium">FREEMIUM</span>
+        <h3>MindStudio</h3>
+        <p>No-code AI platform for building, automating, and deploying custom AI agents and workflows.</p>
+         <a href="https://www.mindstudio.ai/" target="_blank">
+            <button class="visit-btn">Visit</button>
+         </a>
+    </div>
+
+
+
+</div>
+
+</section>
+
+<!-- FREE TOOLS (KEPT ONLY ONCE) -->
+<section class="tools-section" id="topfreetools">
+
+<h2 class="section-title">Top Free AI Tools</h2>
+
+<div class="tools-grid">
+
+    <div class="tool-card">
+        <div class="tool-icon">🧠</div>
+        <span class="tag free">FREE</span>
+        <h3>Claude AI</h3>
+        <p>Helpful AI assistant for productivity.</p>
+
+        <a href="https://claude.ai" target="_blank">
+            <button class="visit-btn">Visit</button>
+        </a>
+    </div>
+
+    <div class="tool-card">
+        <div class="tool-icon">✨</div>
+        <span class="tag free">FREE</span>
+        <h3>Canva AI</h3>
+        <p>Design graphics using AI features.</p>
+
+        <a href="https://www.canva.com" target="_blank">
+            <button class="visit-btn">Visit</button>
+        </a>
+    </div>
+
+     <div class="tool-card" data-category="Research free">
+        <div class="tool-icon">🔍</div>
+        <span class="tag free">FREE</span>
+        <h3>Perplexity AI</h3>
+        <p>AI search engine with source citations.</p>
+         <a href="https://www.perplexity.ai" target="_blank">
+            <button class="visit-btn">Visit</button>
+         </a>
+    </div>
+
+    <div class="tool-card" data-category="Productivity Free">
+        <div class="tool-icon">✨</div>
+        <span class="tag free">FREE</span>
+        <h3>Gemini</h3>
+        <p>Google AI assistant for research and productivity.</p>
+         <a href="https://gemini.google.com" target="_blank">
+            <button class="visit-btn">Visit</button>
+         </a>
+    </div>
+
+    <div class="tool-card" data-category="Writing Free">
+        <div class="tool-icon">🤖</div>
+        <span class="tag free">FREE</span>
+        <h3>ChatGPT</h3>
+        <p>AI chatbot for writing, coding and learning.</p>
+
+        <a href="https://chat.openai.com" target="_blank">
+            <button class="visit-btn">Visit</button>
+        </a>
+    </div>
+
+    <div class="tool-card" data-category="All Free">
+        <div class="tool-icon">🤖</div>
+        <span class="tag free">FREE</span>
+        <h3>Microsoft Copilot</h3>
+        <p>AI assistant by Microsoft for writing, coding, image generation, and productivity tasks.</p>
+         <a href="https://copilot.microsoft.com/" target="_blank">
+            <button class="visit-btn">Visit</button>
+         </a>
+    </div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+    <h3>Maanav Tools</h3>
+    <p>Your Daily AI Toolkit</p>
+</footer>
+
+<script>
+// CATEGORY FILTER ONLY (SEARCH REMOVED)
+
+function filterTools(category){
+
+    let cards = document.querySelectorAll('.tool-card');
+    let buttons = document.querySelectorAll('.category-btn');
+
+    buttons.forEach(btn => btn.classList.remove('active'));
+
+    event.currentTarget.classList.add('active');
+
+    cards.forEach(card => {
+
+        if(category === 'all'){
+            card.style.display = 'block';
+        }
+        else if(card.dataset.category.includes(category)){
+            card.style.display = 'block';
+        }
+        else{
+            card.style.display = 'none';
+        }
+    });
+}
+</script>
+
+</body>
+</html>

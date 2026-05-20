@@ -3,13 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Discover top AI tools for coding, writing, image generation, productivity and more.">
 <title>Maanav Tools</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" href="logo.png">
-
+    
 <style>
 
 /* (UNCHANGED CSS - kept exactly as you wrote) */
@@ -339,6 +337,23 @@ transition:0.3s;
 
 .preview-box a:hover{
 transform:translateY(-4px);
+}
+    .logo{
+  font-size:42px;
+  font-weight:700;
+  background:linear-gradient(90deg,#00d4ff,#7c3aed);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+    header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  backdrop-filter:blur(10px);
+  background:rgba(2,6,23,0.7);
+}
+    html{
+  scroll-behavior:smooth;
 }
 </style>
 </head>
@@ -2247,27 +2262,32 @@ function filterTools(category){
 © 2026 Maanav Tools
 </footer>
     <script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
 const searchInput = document.getElementById("searchInput");
 
-searchInput.addEventListener("keyup", function () {
+searchInput.addEventListener("input", () => {
 
-let filter = searchInput.value.toLowerCase();
+const filter = searchInput.value.toLowerCase();
 
-let cards = document.querySelectorAll(".tool-card");
+document.querySelectorAll(".tool-card").forEach(card => {
 
-cards.forEach(card => {
+const title = card.querySelector("h3").innerText.toLowerCase();
+const desc = card.querySelector("p").innerText.toLowerCase();
 
-let text = card.innerText.toLowerCase();
-
-if(text.includes(filter)){
-card.style.display = "block";
+if(title.includes(filter) || desc.includes(filter)){
+    card.style.display = "block";
 } else {
-card.style.display = "none";
+    card.style.display = "none";
 }
 
 });
 
 });
+
+});
+</script>
 </script>
 
 </body>

@@ -3,10 +3,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Discover top AI tools for coding, writing, image generation, productivity and more.">
 <title>Maanav Tools</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="logo.png">
 
 <style>
 
@@ -245,7 +247,7 @@ html{ scroll-behavior:smooth; }
 }
 
 .tool-card:hover{
-    transform:translateY(-6px);
+    transform:translateY(-5px);
     box-shadow:0 10px 30px rgba(0,0,0,0.08);
 }
 .hero-btn,
@@ -267,6 +269,76 @@ html{ scroll-behavior:smooth; }
 .tools-section{
     max-width:1400px;
     margin:auto;
+}
+    .tool-card a:hover{
+background: #111;
+color: white;
+}
+    .tool-card img:hover{
+transform: rotate(5deg) scale(1.1);
+transition: 0.3s;
+}
+    .search-box{
+text-align:center;
+margin:30px 0;
+}
+
+.search-box input{
+width:80%;
+max-width:500px;
+padding:14px 20px;
+border:none;
+border-radius:12px;
+font-size:16px;
+outline:none;
+background:#fff;
+box-shadow:0 4px 15px rgba(0,0,0,0.1);
+}
+    .preview-section{
+display:flex;
+justify-content:center;
+align-items:center;
+padding:80px 20px;
+text-align:center;
+}
+
+.preview-box{
+max-width:700px;
+}
+
+.preview-box img{
+width:120px;
+height:120px;
+border-radius:30px;
+margin-bottom:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.preview-box h1{
+font-size:60px;
+margin-bottom:20px;
+}
+
+.preview-box p{
+font-size:20px;
+line-height:1.7;
+opacity:0.9;
+margin-bottom:30px;
+}
+
+.preview-box a{
+display:inline-block;
+padding:14px 30px;
+border-radius:12px;
+text-decoration:none;
+font-weight:600;
+background:#00bcd4;
+color:white;
+transition:0.3s;
+}
+
+.preview-box a:hover{
+transform:translateY(-4px);
 }
 </style>
 </head>
@@ -290,6 +362,24 @@ html{ scroll-behavior:smooth; }
             <button class="hero-btn">Explore Tools</button>
         </a>
     </div>
+
+</section>
+    <section class="preview-section">
+
+<div class="preview-box">
+
+<img src="logo.png" alt="Maanav Tools Logo">
+
+<h1>Maanav Tools</h1>
+
+<p>
+Discover the best AI tools for coding, writing, image generation,
+productivity, video editing, and more.
+</p>
+
+<a href="#tools">Explore Tools</a>
+
+</div>
 
 </section>
 
@@ -317,10 +407,13 @@ html{ scroll-behavior:smooth; }
 </section>
 
 <!-- TOOLS (ONLY ONE SECTION KEPT) -->
+    <section id="tools">
 <section class="tools-section" id="alltools">
 
 <h2 class="section-title">All AI Tools</h2>
-
+<div class="search-box">
+  <input type="text" id="searchInput" placeholder="Search AI tools...">
+</div>
 <div class="tools-grid" id="toolsContainer">
 
     <div class="tool-card" data-category="Writing Free">
@@ -2150,6 +2243,31 @@ function filterTools(category){
         }
     });
 }
+    <footer>
+© 2026 Maanav Tools
+</footer>
+    <script>
+const searchInput = document.getElementById("searchInput");
+
+searchInput.addEventListener("keyup", function () {
+
+let filter = searchInput.value.toLowerCase();
+
+let cards = document.querySelectorAll(".tool-card");
+
+cards.forEach(card => {
+
+let text = card.innerText.toLowerCase();
+
+if(text.includes(filter)){
+card.style.display = "block";
+} else {
+card.style.display = "none";
+}
+
+});
+
+});
 </script>
 
 </body>
